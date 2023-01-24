@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% comment %} {% load static %} {% endcomment %}
+
+{% block content %}
+    <div class='list_container'>
+        <form method="GET">
+            <input type='text' name='city' placeholder='Enter city'>
+            <button type='submit' for='city'>Submit</button>
+            <input type='text' name='postal_code' placeholder='Enter zip code'>
+            <button type='submit' for='postal_code'>Submit</button>
+            <input type='text' name='state' placeholder='Enter state'>
+            <button type='submit' for='state'>Submit</button>
+{% endblock content %}
