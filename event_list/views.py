@@ -25,7 +25,7 @@ def get_events(request):
                 postal_code = events[i]['venue']['postal_code'],  
                 #datetime_utc = events[i]['datetime_utc'],     
             )
-        #events = data['events'] 
+        ## Querying dictionary instead of list ##   
         # event_data = EventList.objects.create(
         #     short_title = data['short_title'],
         #     event_type = data['type'],
@@ -34,9 +34,16 @@ def get_events(request):
         #     postal_code = data['venue']['postal_code'],  
         #     datetime_local = data['datetime_utc'],     
         # )
-
         event_data.save()
         # all_events = EventList.objects.all().order_by('-type')
         all_events = EventList.objects.all()
 
     return render (request, 'event_list.html', {"all_events": all_events})
+
+
+
+
+
+
+
+        

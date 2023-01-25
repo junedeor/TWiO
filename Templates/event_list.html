@@ -14,27 +14,30 @@
         </form>
     </div>
     <div class='list_container'>
-        {% for event in all_events %}
-            {# {{ event.short_title }} #}
-            <table>
+        <table class="table table-hover">
+            <thead>
                 <tr>
-                    <th>Event Name</th>
-                    <th>Type of Event</th>
-                    <th>City</th>
-                    <th>State</th>
-                    <th>Zip Code</th>
-                    <th>DTG</th>
+                    <th scope="col">Event Name</th>
+                    <th scope="col">Type of Event</th>
+                    <th scope="col">City</th>
+                    <th scope="col">State</th>
+                    <th scope="col">Zip Code</th>
+                    <th scope="col">DTG</th>
                 </tr>
-                <tr>
-                    <td>{{ event.short_title }}</td>
-                    <td>{{ event.event_type }}</td>
-                    <td>{{ event.city }}</td>
-                    <td>{{ event.state }}</td>
-                    <td>{{ event.postal_code }}</td>
-                    {#<td>{{ event.datetime_utc }}</td>#}
-                </tr>
-            </table>
-        {% endfor %}
+            </thead>
+            {% for event in all_events %}
+                <tbody>
+                    <tr>
+                        <th scope="row">{{ event.short_title }}</th>
+                        <td>{{ event.event_type }}</td>
+                        <td>{{ event.city }}</td>
+                        <td>{{ event.state }}</td>
+                        <td>{{ event.postal_code }}</td>
+                        {#<td>{{ event.datetime_utc }}</td>#}
+                    </tr>
+                </tbody>
+            {% endfor %}
+        </table>
     </div>
 
 {% endblock content %}
