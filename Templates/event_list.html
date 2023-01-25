@@ -2,12 +2,39 @@
 {% comment %} {% load static %} {% endcomment %}
 
 {% block content %}
-    <div class='list_container'>
+    <div class='form_container'>
         <form method="GET">
+            {% csrf_token %}
             <input type='text' name='city' placeholder='Enter city'>
             <button type='submit' for='city'>Submit</button>
             <input type='text' name='postal_code' placeholder='Enter zip code'>
             <button type='submit' for='postal_code'>Submit</button>
             <input type='text' name='state' placeholder='Enter state'>
             <button type='submit' for='state'>Submit</button>
+        </form>
+    </div>
+    <div class='list_container'>
+        {% for event in all_events %}
+            {# {{ event.short_title }} #}
+            <table>
+                <tr>
+                    <th>Event Name</th>
+                    <th>Type of Event</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zip Code</th>
+                    <th>DTG</th>
+                </tr>
+                <tr>
+                    <td>{{ event.short_title }}</td>
+                    <td>{{ event.event_type }}</td>
+                    <td>{{ event.city }}</td>
+                    <td>{{ event.state }}</td>
+                    <td>{{ event.postal_code }}</td>
+                    {#<td>{{ event.datetime_utc }}</td>#}
+                </tr>
+            </table>
+        {% endfor %}
+    </div>
+
 {% endblock content %}
