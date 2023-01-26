@@ -24,7 +24,7 @@
                     <th scope="col">City</th>
                     <th scope="col">State</th>
                     <th scope="col">Zip Code</th>
-                    <th scope="col">DTG</th>
+                    <th scope="col">Date and Time (Local)</th>
                 </tr>
             </thead>
             {% for event in all_events %}
@@ -35,7 +35,7 @@
                         <td>{{ event.city }}</td>
                         <td>{{ event.state }}</td>
                         <td>{{ event.postal_code }}</td>
-                        {#<td>{{ event.datetime_utc }}</td>#}
+                        <td>{{ event.local_dtg }}</td>
                     </tr>
                 </tbody>
             {% endfor %}

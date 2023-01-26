@@ -6,7 +6,7 @@ class EventList(models.Model):
     city = models.CharField(max_length=200,blank=True,null=True)
     state = models.CharField(max_length=200,blank=True,null=True)
     postal_code = models.CharField(max_length=200,blank=True,null=True)
-    # datetime_utc = models.DateTimeField #it doesn't like this OR datetime_local
+    local_dtg = models.DateTimeField(blank=True,null=True)
 
     def __str__(self):
         return self.short_title

@@ -5,9 +5,9 @@ import requests
 
 def get_events(request):
     all_events = {}
-    print(request.GET)
+    #print(request.GET)
     if request.GET['city'] != '':
-        print(request.GET['city'])
+        #print(request.GET['city'])
         city = request.GET['city']
         url = 'https://api.seatgeek.com/2/events?venue.city=%s&client_id=MzE2MDc3Mzl8MTY3NDUxMjYxMS42OTk4Mg' %city
         # url = 'https://api.seatgeek.com/2/events?venue.city=eugene&client_id=MzE2MDc3Mzl8MTY3NDUxMjYxMS42OTk4Mg'
@@ -40,7 +40,7 @@ def get_events(request):
             city = events[i]['venue']['city'],       
             state = events[i]['venue']['state'],
             postal_code = events[i]['venue']['postal_code'],  
-            #datetime_utc = events[i]['datetime_utc'],     
+            local_dtg = events[i]['datetime_local'],     
         )
         ## Querying dictionary instead of list ##   
         # event_data = EventList.objects.create(
