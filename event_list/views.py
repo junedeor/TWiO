@@ -9,17 +9,16 @@ def get_events(request):
     if request.GET['city'] != '':
         #print(request.GET['city'])
         city = request.GET['city']
-        url = 'https://api.seatgeek.com/2/events?venue.city=%s&client_id=MzE2MDc3Mzl8MTY3NDUxMjYxMS42OTk4Mg' %city
-        # url = 'https://api.seatgeek.com/2/events?venue.city=eugene&client_id=MzE2MDc3Mzl8MTY3NDUxMjYxMS42OTk4Mg'
+        url = f'https://api.seatgeek.com/2/events?venue.city={city}&client_id=MzE2MDc3Mzl8MTY3NDUxMjYxMS42OTk4Mg'
         response = requests.get(url)
         data = response.json()
         events = data['events'] 
-        print(events)
+        #print(events)
 
     #elif 'postal_code' in request.GET:
     elif request.GET['postal_code'] !='':
         postal_code = request.GET['postal_code']
-        url = 'https://api.seatgeek.com/2/events?venue.postal_code=%s&client_id=MzE2MDc3Mzl8MTY3NDUxMjYxMS42OTk4Mg' %postal_code
+        url = f'https://api.seatgeek.com/2/events?venue.postal_code={postal_code}&client_id=MzE2MDc3Mzl8MTY3NDUxMjYxMS42OTk4Mg'
         response = requests.get(url)
         data = response.json()
         events = data['events']
@@ -27,7 +26,7 @@ def get_events(request):
     #elif 'state' in request.GET:
     elif request.GET['state'] !='':
         state = request.GET['state']
-        url = 'https://api.seatgeek.com/2/events?venue.state=%s&client_id=MzE2MDc3Mzl8MTY3NDUxMjYxMS42OTk4Mg' %state    
+        url = f'https://api.seatgeek.com/2/events?venue.state={state}&client_id=MzE2MDc3Mzl8MTY3NDUxMjYxMS42OTk4Mg'    
         response = requests.get(url)
         data = response.json()
         events = data['events']
@@ -53,10 +52,9 @@ def get_events(request):
         # )
     event_data.save()
         # all_events = EventList.objects.all().order_by('-type')
-    all_events = EventList.objects.all()
+    all_events = EventList.objects.all().order_by('-id')
 
     return render (request, 'event_list.html', {"all_events": all_events})
-
 
 
 
