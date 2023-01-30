@@ -15,13 +15,13 @@ def get_events(request):
         events = data['events'] 
         #print(events)
 
-    #elif 'postal_code' in request.GET:
     elif request.GET['postal_code'] !='':
         postal_code = request.GET['postal_code']
         url = f'https://api.seatgeek.com/2/events?venue.postal_code={postal_code}&client_id=MzE2MDc3Mzl8MTY3NDUxMjYxMS42OTk4Mg'
         response = requests.get(url)
         data = response.json()
         events = data['events']
+        
         
     #elif 'state' in request.GET:
     elif request.GET['state'] !='':
@@ -41,24 +41,42 @@ def get_events(request):
             postal_code = events[i]['venue']['postal_code'],  
             local_dtg = events[i]['datetime_local'],     
         )
-        ## Querying dictionary instead of list ##   
-        # event_data = EventList.objects.create(
-        #     short_title = data['short_title'],
-        #     event_type = data['type'],
-        #     city = data['venue']['city'],       
-        #     state = data['venue']['state'],
-        #     postal_code = data['venue']['postal_code'],  
-        #     datetime_local = data['datetime_utc'],     
-        # )
+        
     event_data.save()
         # all_events = EventList.objects.all().order_by('-type')
     all_events = EventList.objects.all().order_by('-id')
 
     return render (request, 'event_list.html', {"all_events": all_events})
 
+# def sort(request):
+#     if request.GET['short_title_sort'] == True:
+#         #url = 
+#         all_events = EventList.objects.all().order_by('short_title')
 
 
 
 
 
-        
+
+
+
+#     # short_title = short_title
+#     # event_type_sort = event_type_sort
+#     # city_sort = city_sort
+#     # state_sort = state_sort
+#     # postal_code_sort = postal_code_sort
+#     # local_dtg_sort = local_dtg_sort
+#     # if short_title == True:
+#     #     all_events = EventList.objects.all().order_by('short_title')
+#     # elif event_type_sort == True:
+#     #      all_events = EventList.objects.all().order_by('event_type') 
+#     # elif city_sort == True:
+#     #      all_events = EventList.objects.all().order_by('city') 
+#     # elif state_sort == True:
+#     #      all_events = EventList.objects.all().order_by('state')
+#     # elif postal_code_sort == True:
+#     #      all_events = EventList.objects.all().order_by('postal_code')
+#     # elif local_dtg_sort == True:
+#     #      all_events = EventList.objects.all().order_by('local_dtg')
+    
+#     return render (request, 'event_list.html', {"all_events": all_events})
