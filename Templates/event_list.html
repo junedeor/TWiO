@@ -6,7 +6,6 @@
         <form method="GET">
             {% csrf_token %}
             <h4>You can search for events by city, state, or zip code</h4>
-
             <input type='text' name='city' placeholder='Enter city'>
             <button type='submit' for='city'>Submit</button>
             <input type='text' name='postal_code' placeholder='Enter zip code'>
@@ -14,6 +13,18 @@
             <input type='text' name='state' placeholder='Enter 2-letter state'>
             <button type='submit' for='state'>Submit</button>
         </form>
+        {% comment %} <form method="GET" name='sort' action='{% url 'EventList:sort' %}'>
+            {% csrf_token %}
+            <select id='sort' name='sort'>
+                <option selected disabled>Sort Results<br>
+                <option value='short_title_sort'>Event Name<br>
+                <option value='event_type_sort'>Type of Event<br>
+                <option value='city_sort'>City<br>
+                <option value='state_sort'>State<br>
+                <option value='postal_code_sort'>Zip Code<br>
+                <option value='local_dtg_sort'>Date / Time<br>
+            </select>  
+        </form>    {% endcomment %}
     </div>
     <div class='list_container'>
         <table class="table table-hover">
@@ -43,3 +54,31 @@
     </div>
 
 {% endblock content %}
+
+{% comment %} Nested forms
+<form id='main-form'action="/main-action"method="GET"></form>
+        <form id='sub-form'action="/sub-action"method="GET"></form>
+        {% comment %} ****Verify that sub form is GET not POST****** {% endcomment %}
+        {% comment %}{% csrf_token %}
+            <h4>You can search for events by city, state, or zip code</h4>
+            <div class="main-component">
+                <input type='text' name='city' form="main-form" placeholder='Enter city'>
+                <button type='submit' for='city'>Submit</button>
+                <input type='text' name='postal_code' form="main-form" placeholder='Enter zip code'>
+                <button type='submit' for='postal_code'>Submit</button>
+                <input type='text' name='state' form="main-form" placeholder='Enter 2-letter state'>
+                <button type='submit' for='state'>Submit</button>
+            
+                <div class="sub-component">
+                    <select id='sort' name='sort' form="sub-form">
+                        <option selected disabled>Sort Results<br>
+                        <option value='short_title'>Event Name<br>
+                        <option value='event_type'>Type of Event<br>
+                        <option value='city'>City<br>
+                        <option value='state'>State<br>
+                        <option value='postal_code'>Zip Code<br>
+                    </select>
+                <div>
+            </div>
+        </form> {% endcomment %} 
+
