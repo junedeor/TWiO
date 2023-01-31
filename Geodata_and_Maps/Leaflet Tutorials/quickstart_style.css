@@ -1,0 +1,13 @@
+/* the first 2 are from the code for the quickstart map (first map) */
+html, body {
+    height: 100%; 
+    margin: 0;
+}
+.leaflet-container {
+    height: 400px;
+    width: 600px;
+    max-width: 100%;
+    max-height: 100%;
+}
+/* this is the code suggested by the quickstart tutorial */
+/* #map { height: 180px; } */
