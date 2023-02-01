@@ -1,6 +1,7 @@
 // initialize the map and set its view to our chosen geographical coordinates and a zoom level:
-//(By default (as we didn’t pass any options when creating the map instance), all mouse and touch interactions on the map are enabled, and it has zoom and attribution controls. Note that the setView call also returns the map object — most Leaflet methods act like this when they don’t return an explicit value, which allows convenient jQuery-like method chaining.)
-var map = L.map('map').setView([51.505, -0.09], 13);
+    //(By default (as we didn’t pass any options when creating the map instance), all mouse and touch interactions on the map are enabled, and it has zoom and attribution controls. Note that the setView call also returns the map object — most Leaflet methods act like this when they don’t return an explicit value, which allows convenient jQuery-like method chaining.)
+//var map = L.map('map').setView([51.505, -0.09], 13);
+var map = L.map('map').setView([44.559, -123.281], 13);
 // add a tile layer to add to our map, in this case it’s a OpenStreetMap tile layer. Creating a tile layer usually involves setting the URL template for the tile images, the attribution text, and the maximum zoom level of the layer. 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
