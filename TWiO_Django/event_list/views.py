@@ -38,8 +38,11 @@ def get_events(request):
             event_type = events[i]['type'],
             city = events[i]['venue']['city'],       
             state = events[i]['venue']['state'],
-            postal_code = events[i]['venue']['postal_code'],  
-            local_dtg = events[i]['datetime_local'],     
+            postal_code = events[i]['venue']['postal_code'], 
+            lat = events[i]['venue']['location']['lat'],
+            lon = events[i]['venue']['location']['lon'],
+            local_dtg = events[i]['datetime_local'],
+
         )
         
     event_data.save()
