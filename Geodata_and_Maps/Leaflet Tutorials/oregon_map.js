@@ -8,7 +8,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
-//need to link geojson_test to this
+//try linking / putting everything together in this file, but if that doesn't work than do it in html like tutorial
 const concertLayer = L.geoJSON([concert], {
 
     style(feature) {

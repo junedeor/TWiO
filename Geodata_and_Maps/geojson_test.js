@@ -7,6 +7,8 @@ const concert = {
         {
             "type": "Feature",
             "properties": {
+                "name": "Adore Delano (21+)",
+                "amenity": "Concert",
                 "popupContent": "Adore Delano (21+)"
             },
             "geometry": {
@@ -16,6 +18,8 @@ const concert = {
         },{
             "type": "Feature",
             "properties": {
+                "name": "Pierre Kwenders",
+                "amenity": "Concert",
                 "popupContent": "Pierre Kwenders"
             },
             "geometry": {
@@ -25,6 +29,8 @@ const concert = {
         },{
             "type": "Feature",
             "properties": {
+                "name": "Common Kings",
+                "amenity": "Concert",
                 "popupContent": "Common Kings"
             },
             "geometry": {
@@ -34,6 +40,8 @@ const concert = {
         },{
             "type": "Feature",
             "properties": {
+                "name": "Stuff You Should Know",
+                "amenity": "Concert",
                 "popupContent": "Stuff You Should Know"
             },
             "geometry": {
@@ -43,6 +51,8 @@ const concert = {
         },{
             "type": "Feature",
             "properties": {
+                "name": "Dirtwire",
+                "amenity": "Concert",
                 "popupContent": "Dirtwire"
             },
             "geometry": {
@@ -52,6 +62,8 @@ const concert = {
         },{
             "type": "Feature",
             "properties": {
+                "name": "Matt Andersen",
+                "amenity": "Concert",
                 "popupContent": "Matt Andersen"
             },
             "geometry": {
@@ -68,6 +80,8 @@ const theater = {
         {
             "type": "Feature",
             "properties": {
+                "name": "Legally Blonde - Eugene",
+                "amenity": "Theater",
                 "popupContent": "Legally Blonde - Eugene"
             },
             "geometry": {
@@ -84,6 +98,8 @@ const ncaa_womens_basketball = {
         {
             "type": "Feature",
             "properties": {
+                "name": "Colorado (Women) at Oregon (Women)",
+                "amenity": "ncaa_womens_basketball",
                 "popupContent": "Colorado (Women) at Oregon (Women)"
             },
             "geometry": {
@@ -93,15 +109,26 @@ const ncaa_womens_basketball = {
         },{
             "type": "Feature",
             "properties": {
+                "name": "Utah (Women) at Oregon State (Women)",
+                "amenity": "ncaa_womens_basketball",
                 "popupContent": "Utah (Women) at Oregon State (Women)"
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [-123.281, 44.5613]
             }
-        },{
+        }
+    ]
+};    
+
+const ncaa_basketball = {
+    "type": "FeatureCollection",
+    "features": [
+        {
             "type": "Feature",
             "properties": {
+                "name": "Idaho at Portland State",
+                "amenity": "ncaa_basketball",
                 "popupContent": "Idaho at Portland State"
             },
             "geometry": {
