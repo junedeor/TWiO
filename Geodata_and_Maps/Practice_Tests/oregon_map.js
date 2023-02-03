@@ -9,6 +9,16 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 //try linking / putting everything together in this file, but if that doesn't work than do it in html like tutorial
+function onEachFeature(feature, layer) {
+    let popupContent = `${feature.property.amenity}`;
+
+    if (feature.properties && feature.properties.popupContent) {
+        popupContent += feature.properties.popupContent;
+    }
+
+    layer.bindPopup(popupContent);
+}
+
 const concertLayer = L.geoJSON([concert], {
 
     style(feature) {
@@ -20,7 +30,27 @@ const concertLayer = L.geoJSON([concert], {
     pointToLayer(feature, latlng) {
         return L.circleMarker(latlng, {
             radius: 8,
-            fillColor: '#ff7800',
+            fillColor: '#06AED5',
+            color: '#000',
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0.8
+        });
+    } 
+}).addTo(map);
+
+const theaterLayer = L.geoJSON([theater], {
+
+    style(feature) {
+        return feature.properties && feature.properties.style;
+    },
+
+    onEachFeature,
+
+    pointToLayer(feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 8,
+            fillColor: '#DD1C1A',
             color: '#000',
             weight: 1,
             opacity: 1,
@@ -29,6 +59,25 @@ const concertLayer = L.geoJSON([concert], {
     }
 }).addTo(map);
 
+const basketballLayer = L.geoJSON([ncaa_womens_basketball, ncaa_basketball], {
+
+    style(feature) {
+        return feature.properties && feature.properties.style;
+    },
+
+    onEachFeature,
+
+    pointToLayer(feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 8,
+            fillColor: '#EFA00B',
+            color: '#000',
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0.8
+        });
+    }
+}).addTo(map);
 // function onMapClick(e) {
 //     alert("You clicked the map at " + e.latlng);
 // }
