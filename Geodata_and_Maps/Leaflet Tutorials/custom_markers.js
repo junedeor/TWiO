@@ -31,3 +31,21 @@ var LeafIcon = L.Icon.extend({
         popupAnchor:  [-3, -76]
     }
 });
+
+//Now we can create all three of our leaf icons from this class and use them:
+
+var greenIcon = new LeafIcon({iconUrl: 'leaf-green.png'}),
+    redIcon = new LeafIcon({iconUrl: 'leaf-red.png'}),
+    orangeIcon = new LeafIcon({iconUrl: 'leaf-orange.png'});
+
+//You may have noticed that we used the new keyword for creating LeafIcon instances. So why do all Leaflet classes get created without it? The answer is simple: the real Leaflet classes are named with a capital letter (e.g. L.Icon), and they also need to be created with new, but there are also shortcuts with lowercase names (L.icon), created for convenience like this:
+
+L.icon = function (options) {
+    return new L.Icon(options);
+};
+
+//You can do the same with your classes too. OK, let’s finally put some markers with these icons on the map:
+
+L.marker([51.5, -0.09], {icon: greenIcon}).addTo(map).bindPopup("I am a green leaf.");
+L.marker([51.495, -0.083], {icon: redIcon}).addTo(map).bindPopup("I am a red leaf.");
+L.marker([51.49, -0.1], {icon: orangeIcon}).addTo(map).bindPopup("I am an orange leaf.");
