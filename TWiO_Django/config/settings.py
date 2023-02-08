@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'event_list.apps.EventListConfig',
-    'users.apps.EventListConfig',
+    'users.apps.UsersConfig',
     'rest_framework'
 ]
 
@@ -129,3 +129,8 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = 'event_list:get_events'
+LOGOUT_REDIRECT_URL = 'event_list:get_events'
+
+LOGIN_URL = 'login'

@@ -51,20 +51,14 @@ def get_events(request):
 
     return render (request, 'event_list.html', {"all_events": all_events})
 
+def map_view(request):
+    return render(request, 'map_view.html', {})
 #is there a generic class for viewing saved searches, or do I just treat it like the BlogDetailView?
 
 # def sort(request):
 #     if request.GET['short_title_sort'] == True:
 #         #url = 
 #         all_events = EventList.objects.all().order_by('short_title')
-
-
-
-
-
-
-
-
 #     # short_title = short_title
 #     # event_type_sort = event_type_sort
 #     # city_sort = city_sort

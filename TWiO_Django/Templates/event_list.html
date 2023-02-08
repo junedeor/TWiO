@@ -28,7 +28,7 @@
     </div>
     {% comment %} this will eventually need event listener so it only shows once there are results {% endcomment %}
     <div class="mapLink">
-        <p><a href="{ url "map template link"}">See Results in Map</a></p>
+        <p><a href="{% url "event_list:map_view" %}">See Results in Map</a></p>
     </div>
     <div class='list_container'>
         <table class="table table-hover">

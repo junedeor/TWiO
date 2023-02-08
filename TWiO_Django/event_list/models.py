@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 class EventList(models.Model):
     short_title = models.CharField(max_length=200,blank=True,null=True)
@@ -9,10 +10,14 @@ class EventList(models.Model):
     lon = models.FloatField(blank=True,null=True)
     lat = models.FloatField(blank=True,null=True)
     local_dtg = models.DateTimeField(blank=True,null=True)
-    # should these go here or in the user's model?
-    author = models.CharField(max_length=50,blank=True,null=True)
-    created_date = models.DateTimeField(auto_now_add=True) #search dtg
-    notes = models.CharField(max_length=200) #field for user-added notes; unsure ATT if should be attached to user or specific search
+    saved_searches = models.CharField(max_length=200,blank=True,null=True)
+    # recent_searches should just be named after its created dtg; should it have dtf or charfield?
+    recent_searches = models.CharField(max_length=200,blank=True,null=True)
+    author = models.ForeignKey('auth.User', on_delete=models.CASCADE,blank=True,null=True)
+    # this was returning a "impossible to add w/o providing a default" error:
+    # created= models.DateTimeField(auto_now_add=True)
+    created= models.DateTimeField(default=timezone.now)
+    notes = models.CharField(max_length=200,blank=True,null=True) #field for user-added notes; unsure ATT if should be attached to user or specific search
     def __str__(self):
         return self.short_title
     
