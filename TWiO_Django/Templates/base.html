@@ -14,7 +14,7 @@
 
 </head>
 <body>
-    <div class=header_container>
+    {% comment %} <div class=header_container>
         <h1>TWiO</h1>
         <h4><em>This Week in Oregon</em></h4>
         <div class="logInBar">
@@ -22,7 +22,6 @@
                 <p>Welcome back {{ user.username}}</p>
                 <p><a href="{% url 'users:profile' user.username %}">See Recent Searches</a></p>
                 <p><a href="{% url 'event_list:get_events' %}">New Search</a></p>
-                {% comment %} <p><a href="{% url 'Needs a URL'%}">Account Settings</p>   {% endcomment %}
                 <p><a href="{% url 'logout' %}">Log Out</a></p>
             {% else %}
                 <p><a href="{% url 'login' %}">Log In</a></p>
@@ -30,7 +29,7 @@
                 <p>To see your recent searches or save your searches<a href="{% url 'users:signup' %}">Join TWiO</a></p>
             {% endif %}
         </div>
-    </div>
+    </div> {% endcomment %}
 
     {% block content %}
 
