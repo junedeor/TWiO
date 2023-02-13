@@ -6,6 +6,10 @@ class EventList(models.Model):
     city = models.CharField(max_length=200,blank=True,null=True)
     state = models.CharField(max_length=2,blank=True,null=True)
     postal_code = models.CharField(max_length=200,blank=True,null=True)
+    # lon = models.FloatField(blank=True,null=True)
+    # lat = models.FloatField(blank=True,null=True)
+    lat = models.DecimalField(max_digits=5,decimal_places=3,blank=True,null=True)
+    lon = models.DecimalField(max_digits=5,decimal_places=2,blank=True,null=True)
     local_dtg = models.DateTimeField(blank=True,null=True)
 
     def __str__(self):
