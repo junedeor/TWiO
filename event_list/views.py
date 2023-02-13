@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from .models import EventList
 import requests
-# from rest_framework import generics
-# from .serializers import MapSerializer
 # import json
 
 def get_events(request):
