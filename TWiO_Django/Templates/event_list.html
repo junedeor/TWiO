@@ -4,19 +4,18 @@
     <div class='form_container'>
         <form method="GET">
             {% csrf_token %}
-            <h4>You can search for events by city, state, or zip code</h4>
+            {% comment %} <h4>You can search for events by city, state, or zip code</h4> {% endcomment %}
             <input type='text' name='city' placeholder='Enter city'>
             <button type='submit' for='city'>Submit</button>
-            <input type='text' name='postal_code' placeholder='Enter zip code'>
-            <button type='submit' for='postal_code'>Submit</button>
-            {% comment %} this needs to be disabled for demo; for testing purposes only {% endcomment %}
-            <input type='text' name='state' placeholder='Enter 2-letter state'>
-            <button type='submit' for='state'>Submit</button>
+            {% comment %} <input type='text' name='postal_code' placeholder='Enter zip code'>
+            <button type='submit' for='postal_code'>Submit</button> {% endcomment %}
+            {% comment %} <input type='text' name='state' placeholder='Enter 2-letter state'>
+            <button type='submit' for='state'>Submit</button> {% endcomment %}
         </form>
     </div>
     {% comment %} this will eventually need event listener so it only shows once there are results {% endcomment %}
-    <div class="mapLink">
-        <p><a href="{% url "event_list:map_view" %}">See Results in Map</a></p>
+    <div class='see_map'>
+        <p><a href='{% url "event_list:map_view" %}'>Go to Map View</a></p>
     </div>
     <div class='list_container'>
         <table class="table table-hover">
@@ -47,7 +46,7 @@
         </table>
     </div>
 
-{% endblock content %}
+{% endblock %}
 
 
 
