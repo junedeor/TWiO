@@ -1,4 +1,8 @@
 from django.shortcuts import render
+from django.views.generic import ListView, DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import EventList
 import requests
 # import json
@@ -34,8 +38,33 @@ def get_events(request):
 def map_view(request):
     return render(request, 'map_view.html')
 
+def home_view(request):
+    return render(request, 'home.html')
 
-#is there a generic class for viewing saved searches, or do I just treat it like the BlogDetailView?
+class SearchListView(ListView):
+    model = EventList
+    template_name = "user_profile.html"
+
+class SearchDetailsView(DetailView):
+    model = EventList
+    template_name = "user_profile.html"
+
+class NotesCreateView(LoginRequiredMixin, CreateView):
+    model = EventList
+    template_name = "user_profile.html"
+    fields = ['notes',]
+
+class NotesEditView(LoginRequiredMixin, UpdateView):
+    model = EventList
+    template_name = "user_profile.html"
+    fields = ['notes',]
+
+class NotesDeleteView(LoginRequiredMixin, DeleteView):
+    model = EventList
+    template_name = "user_profile.html"
+    success_url = reverse_lazy("event_list:user_profle")
+
+
 
  #Multiple Search Options:
 #  def get_events(request):

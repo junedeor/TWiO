@@ -20,26 +20,28 @@
 
 </head>
 <body>
-    {% comment %} <div class=header_container>
-        <h1>TWiO</h1>
-        <h4><em>This Week in Oregon</em></h4>
+    <div class=header_container>
+        <div class='title'>
+            <h1><a href="{% url 'event_list:home'%}">TWiO</a></h1>
+            <h4><em>This Week in Oregon</em></h4>
+        </div>
         <div class="logInBar">
             {% if user.is_authenticated %}
-                <p>Welcome back {{ user.username}}</p>
-                <p><a href="{% url 'users:profile' user.username %}">See Recent Searches</a></p>
-                <p><a href="{% url 'event_list:get_events' %}">New Search</a></p>
+                <p>Welcome back {{ user.username }}</p>
+                <p><a href="{% url 'users:profile' user.username %}">Go to your profile</a></p>
+                {% comment %} <p><a href="{% url 'event_list:get_events' %}">Event Search</a></p> {% endcomment %}
                 <p><a href="{% url 'logout' %}">Log Out</a></p>
             {% else %}
                 <p><a href="{% url 'login' %}">Log In</a></p>
-                <p><a href="{% url 'event_list:get_events' %}">New Search</a></p> 
-                <p>To see your recent searches or save your searches<a href="{% url 'users:signup' %}">Join TWiO</a></p>
+                <p>Join TWiO to search for events based on your personal preferences <a href="{% url 'users:signup' %}">Join TWiO</a></p>
             {% endif %}
         </div>
-    </div> {% endcomment %}
+    </div>
+    <div class='block'>
+        {% block content %}
 
-    {% block content %}
-
-    {% endblock content %}
+        {% endblock content %}
+    </div>
     
 </body>
 </html>

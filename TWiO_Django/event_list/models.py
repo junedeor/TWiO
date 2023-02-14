@@ -10,11 +10,11 @@ class EventList(models.Model):
     lat = models.DecimalField(max_digits=5,decimal_places=3,blank=True,null=True)
     lon = models.DecimalField(max_digits=5,decimal_places=2,blank=True,null=True)
     local_dtg = models.DateTimeField(blank=True,null=True)
-    #author = models.ForeignKey('auth.User',on_delete=models.CASCADE,blank=True,null=True)
+    author = models.ForeignKey('auth.User',on_delete=models.CASCADE,blank=True,null=True)
     # this was returning a "impossible to add w/o providing a default" error:
     # created= models.DateTimeField(auto_now_add=True)
     #created= models.DateTimeField(default=timezone.now) #no errors
-    #notes = models.CharField(max_length=200,blank=True,null=True) #field for user-added notes; unsure ATT if should be attached to user or specific search
+    notes = models.CharField(max_length=200,blank=True,null=True) #field for user-added notes, title, etc so attach to specific search
     # are these fields necessary here?
     # saved_searches = models.CharField(max_length=200,blank=True,null=True)
     # # recent_searches should just be named after its created dtg; should it have dtf or charfield?
