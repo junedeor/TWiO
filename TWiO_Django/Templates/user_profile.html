@@ -1,15 +1,32 @@
 {% comment %} User's Recent Searches and Saved Searches {% endcomment %}
 {% comment %} Map View link needs to be tied to each set of search results {% endcomment %}
-{% extends 'base.html' %}
+    {% extends 'base.html' %}
 
-{% block content %}
+    {% block content %}
 
-<div class="user_profile">
-    <h3>Hi {{ user_profile.username }} </h3>
-    <div class="recent_searches">
-        <h4>Recent Searches</h4>
+    <div class="event_search">
+        <p><a href="{% url 'event_list:get_events' %}">New Search</a></p>
     </div>
-    <div class="saved_searches">
-        <h4>Saved Searches</h4>
+
+    <div class="search_history">
+        <h3>Hi {{ user_profile.username }} </h3>
+        <div class="recent_searches">
+            <h4>Recent Searches</h4>
+        </div>
+        <div class="saved_searches">
+            <h4>Saved Searches</h4>
+        </div>
     </div>
-    
+
+    <div class="notes">
+        <h3>Notes</h3>
+            {% for note in user_profile.event_list.all %} {% comment %} do I need new model for this? {% endcomment %}
+                <p>{{ event.notes|linebreaksbr }}</p>
+                <p><a href="{% url 'event_list:notes_detail' post.id %}">Edit or Delete This Note</a></p>
+                {% comment %} <p><a href="{% url 'notes_edit' %}">Edit</a><a href="{% url 'notes_delete' %}">Delete</a></p> {% endcomment %}
+            {% endfor %}
+    </div>
+
+    {% endblock %}
+
+

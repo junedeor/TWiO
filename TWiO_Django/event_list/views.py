@@ -41,11 +41,11 @@ def map_view(request):
 def home_view(request):
     return render(request, 'home.html')
 
-class SearchListView(ListView):
+class SearchNotesListView(ListView):
     model = EventList
     template_name = "user_profile.html"
 
-class SearchDetailsView(DetailView):
+class NotesDetailsView(DetailView):
     model = EventList
     template_name = "user_profile.html"
 
@@ -54,12 +54,14 @@ class NotesCreateView(LoginRequiredMixin, CreateView):
     template_name = "user_profile.html"
     fields = ['notes',]
 
+#left out UserPassesTestMixin for Edit and Delete views
 class NotesEditView(LoginRequiredMixin, UpdateView):
     model = EventList
     template_name = "user_profile.html"
     fields = ['notes',]
 
-class NotesDeleteView(LoginRequiredMixin, DeleteView):
+
+class NotesDeleteView(LoginRequiredMixin,DeleteView):
     model = EventList
     template_name = "user_profile.html"
     success_url = reverse_lazy("event_list:user_profle")
