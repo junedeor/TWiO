@@ -51,25 +51,24 @@ class SearchNotesListView(ListView):
 
 class NotesDetailsView(DetailView):
     model = EventList
-    template_name = "user_profile.html"
+    template_name = "notes_detail.html"
 
 class NotesCreateView(LoginRequiredMixin, CreateView):
     model = EventList
-    template_name = "user_profile.html"
+    template_name = "notes_create.html"
     fields = ['notes',]
 
 #left out UserPassesTestMixin for Edit and Delete views
 class NotesEditView(LoginRequiredMixin, UpdateView):
     model = EventList
-    template_name = "user_profile.html"
+    template_name = "notes_edit.html"
     fields = ['notes',]
 
 
 class NotesDeleteView(LoginRequiredMixin,DeleteView):
     model = EventList
-    template_name = "user_profile.html"
-    success_url = reverse_lazy("event_list:user_profle")
-
+    template_name = "notes_delete.html"
+    success_url = reverse_lazy("event_list:user_profile")
 
 
  #Multiple Search Options:

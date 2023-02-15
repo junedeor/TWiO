@@ -1,5 +1,40 @@
 {% extends 'base.html' %}
-
+{% block additional_styles %}
+    <style>
+        {% comment %} .header {
+            background-image: url(../static/images/Kids_Dog_Fisherman.jpeg);
+        } {% endcomment %}
+        .container {
+            max-width: 50%;
+            height: 300px;
+            margin: 0;
+        }
+        .container .content {
+            position: absolute;
+            top: 0;
+            background: rgb(0, 0, 0); /* Fallback color */
+            background: rgba(0, 0, 0, 0.0); /* Black background with 0.5 opacity */
+            color: #f1f1f1;
+            width: 100%;
+            padding: 20px;
+        }
+        .container img {
+            opacity: 0%;
+            height: 0%;
+        }
+        .title_foot {
+            display: flex;
+            justify-content: flex-start;
+            padding-left: 15px;
+            padding-top: 0px;
+        }
+        .title_foot a {
+            color: #D8AD91;
+            text-decoration: none;
+            font-size: medium;
+        }
+    </style>
+{% endblock additional_styles %}
 {% block content %}
 
 <div class='form_container'>
@@ -14,39 +49,39 @@
         <button type='submit' for='state'>Submit</button> {% endcomment %}
     </form>
 </div>
-{% comment %} this will eventually need event listener so it only shows once there are results {% endcomment %}
 <div class='see_map'>
-    <p><a href='{% url "event_list:map_view" %}'>Go to Map View</a></p>
+    <p><a href="{% url 'event_list:map_view' %}">Go to Map View</a></p>
 </div>
-<div class='list_container'>
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th scope="col">Event Name</th>
-                <th scope="col">Type of Event</th>
-                <th scope="col">City</th>
-                <th scope="col">State</th>
-                <th scope="col">Zip Code</th>
-                <th scope="col">Lat / Long</th> {# hide/change this #}
-                <th scope="col">Date and Time (Local)</th>
-            </tr>
-        </thead>
-        {% for event in all_events %}
-            <tbody>
+<div class="event_table"> 
+    <div class='list_container'>
+        <table class="table table-hover table-bordered">
+            <thead class="thead">
                 <tr>
-                    <th scope="row">{{ event.short_title }}</th>
-                    <td>{{ event.event_type }}</td>
-                    <td>{{ event.city }}</td>
-                    <td>{{ event.state }}</td>
-                    <td>{{ event.postal_code }}</td>
-                    <td>{{ event.lat }} {{ event.lon }} </td>
-                    <td>{{ event.local_dtg }}</td>
+                    <th scope="col">Event Name</th>
+                    <th scope="col">Type of Event</th>
+                    <th scope="col">City</th>
+                    {# <th scope="col">State</th> #}
+                    <th scope="col">Zip Code</th>
+                    {#<th scope="col">Lat / Long</th> #} {# hide/change this #}
+                    <th scope="col">Date and Time (Local)</th>
                 </tr>
-            </tbody>
-        {% endfor %}
-    </table>
+            </thead>
+            {% for event in all_events %}
+                <tbody>
+                    <tr>
+                        <th scope="row">{{ event.short_title }}</th>
+                        <td>{{ event.event_type }}</td>
+                        <td>{{ event.city }}</td>
+                        {#<td>{{ event.state }}</td> #}
+                        <td>{{ event.postal_code }}</td>
+                        {#<td>{{ event.lat }} {{ event.lon }} </td> #}
+                        <td>{{ event.local_dtg }}</td>
+                    </tr>
+                </tbody>
+            {% endfor %}
+        </table>
+    </div>
 </div>
-
 {% endblock %}
 
 

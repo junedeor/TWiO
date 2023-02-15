@@ -1,11 +1,48 @@
 {% extends 'base.html' %}
-
+{% block additional_styles %}
+    <style>
+        {% comment %} .header {
+            background-image: url(../static/images/Kids_Dog_Fisherman.jpeg);
+        } {% endcomment %}
+        .container {
+            max-width: 50%;
+            height: 300px;
+            margin: 0;
+        }
+        .container .content {
+            position: absolute;
+            top: 0;
+            background: rgb(0, 0, 0); /* Fallback color */
+            background: rgba(0, 0, 0, 0.0); /* Black background with 0.5 opacity */
+            color: #f1f1f1;
+            width: 100%;
+            padding: 20px;
+        }
+        .container img {
+            opacity: 0%;
+            height: 0%;
+        }
+        .title_foot {
+            display: flex;
+            justify-content: flex-start;
+            padding-left: 15px;
+            padding-top: 0px;
+        }
+        .title_foot a {
+            color: #D8AD91;
+            text-decoration: none;
+            font-size: medium;
+        }
+    </style>
+{% endblock additional_styles %}
 {% block content %}
 
 <div class='leaflet-container'>
     
     <div id="app">
-       <div id="map"></div>
+        <div class="leaf_map">
+            <div id="map"></div>
+        </div>
    </div>
 </div>
 

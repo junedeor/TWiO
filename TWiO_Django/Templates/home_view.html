@@ -1,8 +1,50 @@
 {% extends 'base.html' %}
-
+{% block additional_styles %}
+    <style>
+        {% comment %} .header {
+            background-image: url(../static/images/Kids_Dog_Fisherman.jpeg);
+        } {% endcomment %}
+        .container {
+            max-width: 50%;
+            height: 300px;
+            margin: 0;
+        }
+        .container .content {
+            position: absolute;
+            top: 0;
+            background: rgb(0, 0, 0); /* Fallback color */
+            background: rgba(0, 0, 0, 0.0); /* Black background with 0.5 opacity */
+            color: #f1f1f1;
+            width: 100%;
+            padding: 20px;
+        }
+        .container img {
+            opacity: 0%;
+            height: 0%;
+        }
+        .title_foot {
+            display: flex;
+            justify-content: flex-start;
+            padding-left: 15px;
+            padding-top: 0px;
+        }
+        .title_foot a {
+            color: #D8AD91;
+            text-decoration: none;
+            font-size: medium;
+        }
+    </style>
+{% endblock additional_styles %}
 {% block content %}
+<div id="wrapper">
+        <header id="header"><em><b>What do you want to do this week?</b></em></header>
+        <aside id="left">Left Sidebar</aside>
+        <article id="main">Main body of the site</article>
+        <aside id="right">Right Sidebar</aside>
+        <footer id="footer">Footer</footer>
+    </div>
 
-<h3>Local events, concerts, festivals and more</h3>
+<h3>What do you want to do this week?</h3>
 <div class="event_search">
         <p><a href="{% url 'event_list:get_events' %}">New Search</a></p>
 </div>

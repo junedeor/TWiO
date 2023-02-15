@@ -18,6 +18,7 @@ new Vue({
         lat: null,
         lon: null,
         all_events: null,
+        local_dtg: null,
     },
     methods: {
         mapCoords() {
