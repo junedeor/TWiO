@@ -1,11 +1,53 @@
 {% extends 'base.html' %}
+{% block additional_styles %}
+    <style>
+        .header {
+            background-image: url(../static/images/Kids_Dog_Fisherman.jpeg);
+            {% comment %} height: 10%; {% endcomment %}
+        }
+        .container {
+            max-width: 50%;
+            max-height: 5%;
+            margin: 0;
+            
+        }
+        .container .content {
+            position: absolute;
+            top: 0;
+            background: rgb(0, 0, 0); /* Fallback color */
+            background: rgba(0, 0, 0, 0.0); /* Black background with 0.5 opacity */
+            color: #f1f1f1;
+            width: 100%;
+            padding: 20px;
+        }
+        .container #pacific_beach {
+            opacity: 0%;
+            height: 0%;
+        }
+        .title_foot {
+            display: flex;
+            justify-content: flex-start;
+            padding-left: 15px;
+            padding-top: 0px;
+        }
+        .title_foot a {
+            color: #D8AD91;
+            text-decoration: none;
+            font-size: medium;
+        }
+        {% comment %} .container .content {
+            width {% endcomment %}
+    </style>
+{% endblock additional_styles %}
 
 {% block content %}
-    <h2>Log In</h2>
-    <form action ="" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Log in">
-    </form>
+    <div class="login">
+        <h2>Log In</h2>
+        <form action ="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Log in">
+        </form>
+    </div>
     
 {% endblock %}

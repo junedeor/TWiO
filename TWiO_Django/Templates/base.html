@@ -20,28 +20,40 @@
 
 </head>
 <body>
-    <div class=header_container>
-        <div class='title'>
-            <h1><a href="{% url 'event_list:home'%}">TWiO</a></h1>
-            <h4><em>This Week in Oregon</em></h4>
-        </div>
-        <div class="logInBar">
-            {% if user.is_authenticated %}
-                <p>Welcome back {{ user.username }}</p>
-                <p><a href="{% url 'users:profile' user.username %}">Go to your profile</a></p>
-                {% comment %} <p><a href="{% url 'event_list:get_events' %}">Event Search</a></p> {% endcomment %}
-                <p><a href="{% url 'logout' %}">Log Out</a></p>
-            {% else %}
-                <p><a href="{% url 'login' %}">Log In</a></p>
-                <p>Join TWiO to search for events based on your personal preferences <a href="{% url 'users:signup' %}">Join TWiO</a></p>
-            {% endif %}
+    <div class="container">
+        <img id="pacific_beach" src="../static/images/Tierra_Del_Mar_2.jpeg" alt="Pacific Beach, OR" style="height:100%; width:100%;object-fit: cover;">
+        <div class='content'>
+            <div class="header">
+                <div class='title_bar'>
+                    <h1 id="title"><a href="{% url 'event_list:home_view' %}"><b>TWiO</b></a></h1>
+                    <h3><em>This Week in Oregon</em></h3>
+                </div>
+                <div class="logInBar">
+                    {% if user.is_authenticated %}
+                        <p>Welcome back {{ user.username }}</p>
+                        <p><a href="{% url 'users:profile' user.username %}">Go to your profile</a></p>
+                        {% comment %} <p><a href="{% url 'event_list:get_events' %}">Event Search</a></p> {% endcomment %}
+                        <p><a href="{% url 'logout' %}">Log Out</a></p>
+                    {% else %}
+                        <h6><a href="{% url 'login' %}"><b>Log In</b></a></h6>
+                        <p>Join TWiO: Personalized Event Searches in Your Area <a href="{% url 'users:signup' %}"><b>Sign Up</b></a></p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="title_foot">
+                <h4><a href="{% url 'event_list:home_view' %}">Click Here for Events, Concerts, Festivals and More</a></h4>
+            </div>
         </div>
     </div>
-    <div class='block'>
+    <div class='block_content'>
         {% block content %}
-
         {% endblock content %}
     </div>
-    
+    <div class='style_block'>
+        {% block additional_styles %}
+        {% endblock additional_styles %}
+    </div>
+
+
 </body>
 </html>

@@ -1,8 +1,83 @@
-/* set this to whatever map_view class I use */
-html, body {
+/* full-cover image */
+/* html, body {
     height: 100%; 
     margin: 0;
+    color:antiquewhite;
+}  */
+/* .beach {
+    background-image: url('Tierra_Del_Mar_2.jpeg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+    text-align: center;
+}  */
+* {
+    box-sizing: border-box;
 }
+  
+body {
+    font-family: Arial;
+    font-size: 17px;
+    background-color: #6F819D;
+}
+  
+.container {
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+}
+  
+.container #pacific_beach {
+    vertical-align: middle;
+    
+}
+  
+.container .content {
+    position: absolute;
+    top: 0;
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(0, 0, 0, 0.0); /* Black background with 0.5 opacity */
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+}
+/* .container .content .header .title_bar #title { */
+#title a {
+    color: #D8AD91;
+    text-decoration: none;
+}
+#title a:hover {
+    background-color: #98A4B1;
+  }
+.logInBar a {
+    color: #f1f1f1;
+    text-decoration: none;
+}
+.logInBar a:hover {
+    background-color: #98A4B1;
+  }
+.title_foot {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+    padding-top: 500px;
+   
+}
+.title_foot a {
+    color: #D8AD91;
+    text-decoration: none;
+}
+.title_foot a:hover {
+    background-color: #98A4B1;
+  }
+.login {
+    padding: 20px;
+
+}
+/* set this to whatever map_view class I use */
+
 .leaflet-container {
     height: 400px;
     width: 600px;

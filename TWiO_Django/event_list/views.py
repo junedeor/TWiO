@@ -32,14 +32,18 @@ def get_events(request):
         event_data.save()
             # all_events = EventList.objects.all().order_by('-type')
         all_events = EventList.objects.all().order_by('-id')
+        #all_events = EventList.objects.filter(author=request.user).order_by('-id') #this may not work w/o the usermixin (see Merritt's blog post)
+        #all_events = EventList.objects.all().filter(author=request.user).order_by('-id')
+    return render (request, 'events.html', {"all_events": all_events})
 
-    return render (request, 'event_list.html', {"all_events": all_events})
+def base(request):
+    return render(request, 'base.html')
 
 def map_view(request):
     return render(request, 'map_view.html')
 
 def home_view(request):
-    return render(request, 'home.html')
+    return render(request, 'home_view.html')
 
 class SearchNotesListView(ListView):
     model = EventList
