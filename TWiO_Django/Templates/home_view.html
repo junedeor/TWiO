@@ -1,12 +1,9 @@
 {% extends 'base.html' %}
 {% block additional_styles %}
     <style>
-        {% comment %} .header {
-            background-image: url(../static/images/Kids_Dog_Fisherman.jpeg);
-        } {% endcomment %}
         .container {
             max-width: 50%;
-            height: 300px;
+            height: 200px;
             margin: 0;
         }
         .container .content {
@@ -23,31 +20,27 @@
             height: 0%;
         }
         .title_foot {
-            display: flex;
-            justify-content: flex-start;
-            padding-left: 15px;
-            padding-top: 0px;
+                display: flex;
+                justify-content: flex-start;
+                padding-left: 15px;
+                padding-top: 0px;
         }
         .title_foot a {
-            color: #D8AD91;
-            text-decoration: none;
-            font-size: medium;
+                color: #6F819D;
+                text-decoration: none;
+                font-size: medium;
         }
+        
     </style>
 {% endblock additional_styles %}
 {% block content %}
 <div id="wrapper">
         <header id="header"><em><b>What do you want to do this week?</b></em></header>
-        <aside id="left">Left Sidebar</aside>
-        <article id="main">Main body of the site</article>
-        <aside id="right">Right Sidebar</aside>
-        <footer id="footer">Footer</footer>
-    </div>
-
-<h3>What do you want to do this week?</h3>
-<div class="event_search">
-        <p><a href="{% url 'event_list:get_events' %}">New Search</a></p>
+        <aside id="left"><b><a href="https://business.oregonfestivals.org/events">Festivals / Local Events</a></b></aside>
+        <article id="main"><b><a href="{% url 'event_list:get_events' %}">Concerts / Sports</a></b></article>
+        <aside id="right"><b><a href="https://stateparks.oregon.gov">Go Outside</a></b></aside>
+        {% comment %} <footer id="footer"><b><a href="https://www.visitoregon.com/things-to-do-in-oregon/">Be a Tourist and <em>Do All the Things!</em></a></b></footer> {% endcomment %}
+        <footer id="footer"><b><a href="http://overpass-turbo.eu/s/1roA">Be a Tourist and <em>Do All the Things!</em></a></b></footer>
 </div>
-
 
 {% endblock %}
